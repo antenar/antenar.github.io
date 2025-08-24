@@ -18,15 +18,11 @@ const Navigation = () => {
         <div className="flex items-center justify-between">
           <Link to="/" className="flex items-center space-x-3">
             <div className="relative">
-              <img 
-                src="/lovable-uploads/60ba53b2-fca6-4d38-9240-034435bc9d82.png" 
-                alt="Antennar Logo" 
-                className="h-8 w-8"
-              />
+              <Radio className="h-8 w-8 text-tech-blue" />
               <div className="absolute inset-0 animate-pulse bg-tech-blue/20 rounded-full blur-md"></div>
             </div>
             <div>
-              <span className="text-xl font-bold bg-gradient-signal bg-clip-text text-transparent">
+              <span className="text-xl font-bold text-black dark:text-white">
                 Antennar
               </span>
             </div>
