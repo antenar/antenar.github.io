@@ -24,10 +24,10 @@ const Dashboard = () => {
   ];
 
   const metrics = [
-    { title: "Fleet Efficiency", value: "92.5%", icon: Zap, trend: "+2.3%", color: "text-success" },
-    { title: "Active Nodes", value: "247", icon: Radio, trend: "+15", color: "text-primary" },
-    { title: "Compliance Score", value: "100%", icon: Shield, trend: "+0.5%", color: "text-info" },
-    { title: "Environment Maps", value: "342", icon: MapPin, trend: "+12", color: "text-success" }
+    { title: "System Status", value: "Online", icon: Zap, trend: "Operational", color: "text-success" },
+    { title: "Connected Nodes", value: "4", icon: Radio, trend: "Demo Setup", color: "text-primary" },
+    { title: "Compliance", value: "Active", icon: Shield, trend: "Monitoring", color: "text-info" },
+    { title: "Environment Maps", value: "Live", icon: MapPin, trend: "Updating", color: "text-success" }
   ];
 
   return (
@@ -52,8 +52,7 @@ const Dashboard = () => {
                     <p className="text-sm text-muted-foreground mb-1">{metric.title}</p>
                     <p className="text-2xl font-bold">{metric.value}</p>
                     <div className="flex items-center space-x-1 mt-1">
-                      <TrendingUp className="h-3 w-3 text-success" />
-                      <span className="text-xs text-success">{metric.trend}</span>
+                      <span className="text-xs text-muted-foreground">{metric.trend}</span>
                     </div>
                   </div>
                   <div className={`p-3 bg-primary rounded-lg`}>

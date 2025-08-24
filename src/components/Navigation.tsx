@@ -25,7 +25,6 @@ const Navigation = () => {
               <span className="text-xl font-bold bg-gradient-signal bg-clip-text text-transparent">
                 Antennar
               </span>
-              <span className="text-xs text-muted-foreground ml-1">Cloud</span>
             </div>
           </Link>
           

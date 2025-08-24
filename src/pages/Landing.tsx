@@ -102,7 +102,7 @@ const Landing = () => {
     {
       icon: Target,
       title: "Precision RF Steering",
-      description: "Computer vision-guided beam control delivers up to 40% efficiency gains over omnidirectional transmission."
+      description: "Computer vision-guided beam control concentrates RF energy where needed, reducing waste compared to omnidirectional transmission."
     },
     {
       icon: Shield,
@@ -206,7 +206,7 @@ const Landing = () => {
           </h1>
           <p className="text-lg md:text-xl text-muted-foreground mb-8 max-w-3xl mx-auto leading-relaxed">
             Professional-grade TX/RX hardware with integrated computer vision, managed through our enterprise cloud platform. 
-            Achieve 40% efficiency gains while maintaining regulatory compliance.
+            Enhance network efficiency while maintaining regulatory compliance.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16">
             <Button size="lg" className="bg-primary hover:bg-primary/90 text-lg px-8 py-6">
@@ -231,10 +231,10 @@ const Landing = () => {
               </CardHeader>
               <CardContent>
                 <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
-                  <StatCard title="Active Links" value="247" hint="across 12 sites" />
-                  <StatCard title="Avg. Efficiency" value="87.3%" hint="+34% vs baseline" />
-                  <StatCard title="Compliance Score" value="100%" hint="zero violations" />
-                  <StatCard title="Uptime" value="99.97%" hint="last 30 days" />
+                  <StatCard title="Demo Status" value="Active" hint="system online" />
+                  <StatCard title="Connected Nodes" value="4" hint="test deployment" />
+                  <StatCard title="Compliance" value="Monitored" hint="real-time tracking" />
+                  <StatCard title="Environment Maps" value="Live" hint="continuous updates" />
                 </div>
               </CardContent>
             </Card>
@@ -303,20 +303,20 @@ const Landing = () => {
         </div>
       </section>
 
-      {/* ROI Section */}
+      {/* Benefits & Problems Solved */}
       <section className="py-20 px-6">
         <div className="container mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
-              <h2 className="text-3xl font-bold mb-6">Proven ROI for Enterprise Networks</h2>
+              <h2 className="text-3xl font-bold mb-6">Key Enterprise Benefits</h2>
               <div className="space-y-6">
                 <div className="flex items-start space-x-4">
                   <div className="bg-success/10 rounded-lg p-2">
                     <TrendingUp className="h-6 w-6 text-success" />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-lg mb-2">40% Efficiency Improvement</h3>
-                    <p className="text-muted-foreground text-sm">Average link efficiency gains measured across industrial deployments</p>
+                    <h3 className="font-semibold text-lg mb-2">Power Efficiency Optimization</h3>
+                    <p className="text-muted-foreground text-sm">Directional beam steering concentrates RF energy where needed, reducing waste and lowering operational costs</p>
                   </div>
                 </div>
                 <div className="flex items-start space-x-4">
@@ -324,8 +324,8 @@ const Landing = () => {
                     <Shield className="h-6 w-6 text-primary" />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-lg mb-2">Zero Compliance Issues</h3>
-                    <p className="text-muted-foreground text-sm">Automated monitoring prevents regulatory violations and audit failures</p>
+                    <h3 className="font-semibold text-lg mb-2">Automated Compliance Management</h3>
+                    <p className="text-muted-foreground text-sm">Continuous RF exposure monitoring and automated reporting reduces regulatory overhead and audit risk</p>
                   </div>
                 </div>
                 <div className="flex items-start space-x-4">
@@ -333,21 +333,39 @@ const Landing = () => {
                     <BarChart3 className="h-6 w-6 text-info" />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-lg mb-2">18-Month Payback</h3>
-                    <p className="text-muted-foreground text-sm">Typical ROI timeline through reduced power consumption and improved throughput</p>
+                    <h3 className="font-semibold text-lg mb-2">Network Performance Enhancement</h3>
+                    <p className="text-muted-foreground text-sm">Environment-aware beam control reduces interference and optimizes signal quality in complex RF environments</p>
                   </div>
                 </div>
               </div>
             </div>
             <Card className="bg-gradient-card border-border shadow-lg">
               <CardHeader>
-                <CardTitle>Customer Case Study</CardTitle>
-                <CardDescription>Manufacturing facility - 500,000 sq ft</CardDescription>
+                <CardTitle>Implementation Approach</CardTitle>
+                <CardDescription>Professional deployment process</CardDescription>
               </CardHeader>
               <CardContent className="space-y-4">
-                <StatCard title="Annual Savings" value="$127K" hint="power & efficiency gains" />
-                <StatCard title="Deployment Time" value="3 weeks" hint="vs 6 months baseline" />
-                <StatCard title="Interference Reduction" value="89%" hint="vs legacy equipment" />
+                <div className="flex items-start space-x-3">
+                  <CheckCircle className="h-5 w-5 text-success mt-1" />
+                  <div>
+                    <div className="font-semibold">Site Assessment</div>
+                    <div className="text-sm text-muted-foreground">RF environment analysis and optimal placement planning</div>
+                  </div>
+                </div>
+                <div className="flex items-start space-x-3">
+                  <CheckCircle className="h-5 w-5 text-success mt-1" />
+                  <div>
+                    <div className="font-semibold">Hardware Installation</div>
+                    <div className="text-sm text-muted-foreground">Professional mounting and calibration of TX/RX units</div>
+                  </div>
+                </div>
+                <div className="flex items-start space-x-3">
+                  <CheckCircle className="h-5 w-5 text-success mt-1" />
+                  <div>
+                    <div className="font-semibold">Cloud Integration</div>
+                    <div className="text-sm text-muted-foreground">API setup and dashboard configuration for your team</div>
+                  </div>
+                </div>
               </CardContent>
             </Card>
           </div>
