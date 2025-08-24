@@ -16,9 +16,13 @@ const Navigation = () => {
     <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-sm border-b border-border">
       <div className="container mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
-          <Link to="/" className="flex items-center space-x-2">
+          <Link to="/" className="flex items-center space-x-3">
             <div className="relative">
-              <Radio className="h-8 w-8 text-tech-blue" />
+              <img 
+                src="/lovable-uploads/60ba53b2-fca6-4d38-9240-034435bc9d82.png" 
+                alt="Antennar Logo" 
+                className="h-8 w-8"
+              />
               <div className="absolute inset-0 animate-pulse bg-tech-blue/20 rounded-full blur-md"></div>
             </div>
             <div>
