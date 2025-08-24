@@ -46,10 +46,10 @@ const Navigation = () => {
           
           <div className="flex items-center space-x-4">
             <Button variant="outline" size="sm" asChild>
-              <Link to="/dashboard">Try Demo</Link>
+              <Link to="/dashboard">RF Cloud Platform</Link>
             </Button>
-            <Button size="sm" className="bg-gradient-signal hover:shadow-glow-primary">
-              Get Started
+            <Button size="sm" className="bg-gradient-signal hover:shadow-glow-primary" asChild>
+              <Link to="/dashboard">Monitor Systems</Link>
             </Button>
           </div>
         </div>

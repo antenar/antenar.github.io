@@ -12,22 +12,32 @@ import {
   TrendingUp,
   AlertTriangle,
   CheckCircle,
-  Signal
+  Signal,
+  Camera,
+  Radar,
+  Waves,
+  Cpu,
+  Eye,
+  Thermometer
 } from "lucide-react";
+import occupancyGridImage from "@/assets/occupancy-grid-map.jpg";
+import radarRangeDopplerImage from "@/assets/radar-range-doppler.jpg";
+import lidarPointCloudImage from "@/assets/lidar-point-cloud.jpg";
+import rfLinkBudgetImage from "@/assets/rf-link-budget.jpg";
 
 const Dashboard = () => {
   const devices = [
-    { id: "TX-001-WAREHOUSE-A", location: "Manufacturing Floor East", efficiency: 94.7, status: "optimal" },
-    { id: "TX-002-WAREHOUSE-B", location: "Manufacturing Floor West", efficiency: 87.3, status: "good" },
-    { id: "TX-003-OFFICE-TOWER", location: "Corporate Headquarters", efficiency: 91.8, status: "optimal" },
-    { id: "TX-004-DATACENTER", location: "Primary Data Center", efficiency: 76.2, status: "warning" }
+    { id: "TX-001-WAREHOUSE-A", location: "Manufacturing Floor East", efficiency: 94.7, status: "optimal", connectedRx: 12, linkBudget: -72.3, pathLoss: 85.2 },
+    { id: "TX-002-WAREHOUSE-B", location: "Manufacturing Floor West", efficiency: 87.3, status: "good", connectedRx: 8, linkBudget: -78.1, pathLoss: 92.8 },
+    { id: "TX-003-OFFICE-TOWER", location: "Corporate Headquarters", efficiency: 91.8, status: "optimal", connectedRx: 15, linkBudget: -69.5, pathLoss: 80.1 },
+    { id: "TX-004-DATACENTER", location: "Primary Data Center", efficiency: 76.2, status: "warning", connectedRx: 6, linkBudget: -84.7, pathLoss: 98.3 }
   ];
 
   const metrics = [
-    { title: "System Status", value: "Online", icon: Zap, trend: "Operational", color: "text-success" },
-    { title: "Connected Nodes", value: "4", icon: Radio, trend: "Demo Setup", color: "text-primary" },
-    { title: "Compliance", value: "Active", icon: Shield, trend: "Monitoring", color: "text-info" },
-    { title: "Environment Maps", value: "Live", icon: MapPin, trend: "Updating", color: "text-success" }
+    { title: "System Uptime", value: "99.97%", icon: Zap, trend: "No Failures", color: "text-success" },
+    { title: "Connected Receivers", value: "41", icon: Radio, trend: "Active Links", color: "text-primary" },
+    { title: "RF Compliance", value: "100%", icon: Shield, trend: "All Systems", color: "text-info" },
+    { title: "Energy Savings", value: "34.2%", icon: TrendingUp, trend: "vs Omnidirectional", color: "text-success" }
   ];
 
   return (
@@ -37,9 +47,9 @@ const Dashboard = () => {
         <div className="mb-8">
           <div className="flex items-center space-x-2 mb-2">
             <Activity className="h-6 w-6 text-primary" />
-            <h1 className="text-3xl font-bold">Enterprise Dashboard</h1>
+            <h1 className="text-3xl font-bold">Antennar Cloud Platform</h1>
           </div>
-          <p className="text-muted-foreground">Real-time monitoring and control of your enterprise wireless infrastructure</p>
+          <p className="text-muted-foreground">Real-time monitoring and control of your RF transmission systems with computer vision analytics</p>
         </div>
 
         {/* Metrics Overview */}
@@ -65,105 +75,186 @@ const Dashboard = () => {
         </div>
 
         {/* Main Content Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8">
-          {/* RF Environment Map */}
-          <Card className="lg:col-span-2 bg-gradient-card border-border/50">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
+          {/* RF Link Budget Analysis */}
+          <Card className="bg-gradient-card border-border/50">
             <CardHeader>
               <div className="flex items-center justify-between">
                 <div>
                   <CardTitle className="flex items-center space-x-2">
                     <BarChart3 className="h-5 w-5 text-primary" />
-                    <span>RF Performance Analytics</span>
+                    <span>RF Link Budget Analysis</span>
                   </CardTitle>
-                  <CardDescription>Real-time signal propagation and efficiency visualization</CardDescription>
+                  <CardDescription>Friis equation calculations and path loss optimization</CardDescription>
                 </div>
                 <Badge variant="outline" className="text-success border-success/20 bg-success/10">Live Data</Badge>
               </div>
             </CardHeader>
             <CardContent>
               <div className="relative h-64 bg-muted/20 rounded-lg overflow-hidden">
-                {/* Professional analytics visualization */}
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-success/10"></div>
-                <div className="absolute top-1/4 left-1/4 w-2 h-2 bg-success rounded-full animate-pulse shadow-sm"></div>
-                <div className="absolute top-1/2 right-1/3 w-2 h-2 bg-primary rounded-full animate-pulse shadow-sm"></div>
-                <div className="absolute bottom-1/3 left-1/2 w-2 h-2 bg-info rounded-full animate-pulse shadow-sm"></div>
-                <div className="absolute bottom-1/4 right-1/4 w-2 h-2 bg-warning rounded-full animate-pulse shadow-sm"></div>
-                
-                {/* Professional legend */}
-                <div className="absolute bottom-4 left-4 space-y-2">
+                <img 
+                  src={rfLinkBudgetImage} 
+                  alt="RF Link Budget Analysis Dashboard" 
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute bottom-4 left-4 space-y-2 bg-background/80 p-2 rounded">
                   <div className="flex items-center space-x-2 text-xs">
                     <div className="w-2 h-2 bg-success rounded-full"></div>
-                    <span>Optimal Performance</span>
-                  </div>
-                  <div className="flex items-center space-x-2 text-xs">
-                    <div className="w-2 h-2 bg-primary rounded-full"></div>
-                    <span>Good Performance</span>
+                    <span>Optimal Link Budget</span>
                   </div>
                   <div className="flex items-center space-x-2 text-xs">
                     <div className="w-2 h-2 bg-warning rounded-full"></div>
-                    <span>Needs Attention</span>
+                    <span>Path Loss &gt; 90dB</span>
                   </div>
                 </div>
               </div>
             </CardContent>
           </Card>
 
-          {/* System Status */}
+          {/* Occupancy Grid Visualization */}
           <Card className="bg-gradient-card border-border/50">
             <CardHeader>
-              <CardTitle className="flex items-center space-x-2">
-                <Shield className="h-5 w-5 text-primary" />
-                <span>System Health</span>
-              </CardTitle>
+              <div className="flex items-center justify-between">
+                <div>
+                  <CardTitle className="flex items-center space-x-2">
+                    <Eye className="h-5 w-5 text-primary" />
+                    <span>BEV Occupancy Grid</span>
+                  </CardTitle>
+                  <CardDescription>Computer vision environment mapping</CardDescription>
+                </div>
+                <Badge variant="outline" className="text-primary border-primary/20 bg-primary/10">Vision AI</Badge>
+              </div>
             </CardHeader>
-            <CardContent className="space-y-4">
-              <div className="space-y-2">
-                <div className="flex items-center justify-between text-sm">
-                  <span>Network Performance</span>
-                  <CheckCircle className="h-4 w-4 text-success" />
-                </div>
-                <Progress value={98} className="h-2" />
-              </div>
-              
-              <div className="space-y-2">
-                <div className="flex items-center justify-between text-sm">
-                  <span>RF Optimization</span>
-                  <CheckCircle className="h-4 w-4 text-success" />
-                </div>
-                <Progress value={92} className="h-2" />
-              </div>
-              
-              <div className="space-y-2">
-                <div className="flex items-center justify-between text-sm">
-                  <span>Regulatory Compliance</span>
-                  <CheckCircle className="h-4 w-4 text-success" />
-                </div>
-                <Progress value={100} className="h-2" />
-              </div>
-
-              <div className="pt-4 border-t border-border">
-                <div className="flex items-center space-x-2 text-sm text-success">
-                  <CheckCircle className="h-4 w-4" />
-                  <span>All systems operational</span>
+            <CardContent>
+              <div className="relative h-64 bg-muted/20 rounded-lg overflow-hidden">
+                <img 
+                  src={occupancyGridImage} 
+                  alt="Bird's Eye View Occupancy Grid" 
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute top-4 right-4 space-y-1 bg-background/80 p-2 rounded">
+                  <div className="flex items-center space-x-2 text-xs">
+                    <div className="w-2 h-2 bg-red-500 rounded-full"></div>
+                    <span>Occupied</span>
+                  </div>
+                  <div className="flex items-center space-x-2 text-xs">
+                    <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+                    <span>Free Space</span>
+                  </div>
+                  <div className="flex items-center space-x-2 text-xs">
+                    <div className="w-2 h-2 bg-gray-500 rounded-full"></div>
+                    <span>Unknown</span>
+                  </div>
                 </div>
               </div>
             </CardContent>
           </Card>
         </div>
 
-        {/* Device List */}
+        {/* Sensor Data Grid */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
+          {/* Radar Range Doppler */}
+          <Card className="bg-gradient-card border-border/50">
+            <CardHeader>
+              <CardTitle className="flex items-center space-x-2">
+                <Radar className="h-5 w-5 text-primary" />
+                <span>Radar Range-Doppler Map</span>
+              </CardTitle>
+              <CardDescription>Real-time velocity and distance analysis</CardDescription>
+            </CardHeader>
+            <CardContent>
+              <div className="relative h-64 bg-muted/20 rounded-lg overflow-hidden">
+                <img 
+                  src={radarRangeDopplerImage} 
+                  alt="Radar Range Doppler Heatmap" 
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute bottom-4 left-4 space-y-1 bg-background/80 p-2 rounded">
+                  <div className="text-xs font-semibold">Detection: 12 targets</div>
+                  <div className="text-xs text-muted-foreground">Range: 0-100m</div>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+
+          {/* LiDAR Point Cloud */}
+          <Card className="bg-gradient-card border-border/50">
+            <CardHeader>
+              <CardTitle className="flex items-center space-x-2">
+                <Waves className="h-5 w-5 text-primary" />
+                <span>LiDAR Point Cloud</span>
+              </CardTitle>
+              <CardDescription>3D environment reconstruction</CardDescription>
+            </CardHeader>
+            <CardContent>
+              <div className="relative h-64 bg-muted/20 rounded-lg overflow-hidden">
+                <img 
+                  src={lidarPointCloudImage} 
+                  alt="LiDAR Point Cloud Visualization" 
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute top-4 right-4 bg-background/80 p-2 rounded">
+                  <div className="text-xs font-semibold">Points: 2.3M</div>
+                  <div className="text-xs text-muted-foreground">Range: 200m</div>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
+
+        {/* System Health */}
+        <Card className="bg-gradient-card border-border/50 mb-8">
+          <CardHeader>
+            <CardTitle className="flex items-center space-x-2">
+              <Shield className="h-5 w-5 text-primary" />
+              <span>System Health & Performance</span>
+            </CardTitle>
+          </CardHeader>
+          <CardContent>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <div className="space-y-2">
+                <div className="flex items-center justify-between text-sm">
+                  <span>Network Uptime</span>
+                  <CheckCircle className="h-4 w-4 text-success" />
+                </div>
+                <Progress value={99.97} className="h-2" />
+                <div className="text-xs text-muted-foreground">99.97% (SLA: 99.9%)</div>
+              </div>
+              
+              <div className="space-y-2">
+                <div className="flex items-center justify-between text-sm">
+                  <span>RF Link Quality</span>
+                  <CheckCircle className="h-4 w-4 text-success" />
+                </div>
+                <Progress value={92} className="h-2" />
+                <div className="text-xs text-muted-foreground">Avg SNR: 28.4 dB</div>
+              </div>
+              
+              <div className="space-y-2">
+                <div className="flex items-center justify-between text-sm">
+                  <span>Energy Efficiency</span>
+                  <CheckCircle className="h-4 w-4 text-success" />
+                </div>
+                <Progress value={85} className="h-2" />
+                <div className="text-xs text-muted-foreground">34.2% savings vs omnidirectional</div>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
+
+        {/* Connected TX Systems */}
         <Card className="bg-gradient-card border-border/50">
           <CardHeader>
             <div className="flex items-center justify-between">
               <div>
                 <CardTitle className="flex items-center space-x-2">
                   <Radio className="h-5 w-5 text-primary" />
-                  <span>Connected Nodes</span>
+                  <span>Connected TX Systems</span>
                 </CardTitle>
-                <CardDescription>Monitor and control individual transmission nodes</CardDescription>
+                <CardDescription>Monitor TX-RX links with real-time performance metrics</CardDescription>
               </div>
               <Button variant="outline" size="sm">
-                Add Node
+                Add System
               </Button>
             </div>
           </CardHeader>
@@ -184,6 +275,14 @@ const Dashboard = () => {
                     <div>
                       <p className="font-semibold">{device.id}</p>
                       <p className="text-sm text-muted-foreground">{device.location}</p>
+                      <div className="flex items-center space-x-4 mt-1">
+                        <span className="text-xs text-muted-foreground">
+                          RX Connections: {device.connectedRx}
+                        </span>
+                        <span className="text-xs text-muted-foreground">
+                          Link Budget: {device.linkBudget} dBm
+                        </span>
+                      </div>
                     </div>
                   </div>
                   
@@ -191,6 +290,11 @@ const Dashboard = () => {
                     <div className="text-right">
                       <p className="font-semibold">{device.efficiency}%</p>
                       <p className="text-sm text-muted-foreground">Efficiency</p>
+                    </div>
+                    
+                    <div className="text-right">
+                      <p className="font-semibold">{device.pathLoss} dB</p>
+                      <p className="text-sm text-muted-foreground">Path Loss</p>
                     </div>
                     
                     <Badge 
@@ -229,21 +333,35 @@ const Dashboard = () => {
               <div className="flex items-center justify-between py-2">
                 <div className="flex items-center space-x-3">
                   <CheckCircle className="h-4 w-4 text-success" />
-                  <span className="text-sm">Node TX-001-WAREHOUSE-A efficiency increased to 94.7%</span>
+                  <span className="text-sm">TX-001 beam optimization increased efficiency to 94.7%</span>
                 </div>
                 <span className="text-xs text-muted-foreground">2 minutes ago</span>
               </div>
               <div className="flex items-center justify-between py-2">
                 <div className="flex items-center space-x-3">
+                  <Camera className="h-4 w-4 text-info" />
+                  <span className="text-sm">Computer vision detected new obstacle in TX-002 environment</span>
+                </div>
+                <span className="text-xs text-muted-foreground">8 minutes ago</span>
+              </div>
+              <div className="flex items-center justify-between py-2">
+                <div className="flex items-center space-x-3">
                   <Shield className="h-4 w-4 text-info" />
-                  <span className="text-sm">Compliance check completed - all nodes passing</span>
+                  <span className="text-sm">RF exposure compliance verified for all 4 systems</span>
                 </div>
                 <span className="text-xs text-muted-foreground">15 minutes ago</span>
               </div>
               <div className="flex items-center justify-between py-2">
                 <div className="flex items-center space-x-3">
+                  <Radar className="h-4 w-4 text-primary" />
+                  <span className="text-sm">Radar detected 23 new targets in environment map</span>
+                </div>
+                <span className="text-xs text-muted-foreground">22 minutes ago</span>
+              </div>
+              <div className="flex items-center justify-between py-2">
+                <div className="flex items-center space-x-3">
                   <AlertTriangle className="h-4 w-4 text-warning" />
-                  <span className="text-sm">TX-004-DATACENTER performance below optimal threshold</span>
+                  <span className="text-sm">TX-004 path loss increased to 98.3 dB - beam recalibrating</span>
                 </div>
                 <span className="text-xs text-muted-foreground">1 hour ago</span>
               </div>
