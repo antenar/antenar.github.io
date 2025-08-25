@@ -9,13 +9,14 @@ import {
   CheckCircle,
   ArrowRight,
   Building2,
-  Zap,
+  Antenna,
   Users,
   TrendingUp,
   Cloud,
   Activity
 } from "lucide-react";
 import { Link } from "react-router-dom";
+import telecomHero from "@/assets/telecom-hero.jpg";
 
 const StatCard = ({ title, value, hint }: { title: string; value: string; hint?: string }) => (
   <div className="rounded-2xl border border-border bg-card/70 backdrop-blur-sm p-6">
@@ -100,24 +101,24 @@ const PricingTier = ({
 const Landing = () => {
   const features = [
     {
+      icon: Antenna,
+      title: "Smart Transmitters (TX)",
+      description: "Off-the-shelf smart transmitters, equipped with integrated computer vision modules, fully cloud-connected for autonomous beam optimization."
+    },
+    {
       icon: Target,
-      title: "Precision RF Steering",
-      description: "Computer vision-guided beam control concentrates RF energy where needed, reducing waste compared to omnidirectional transmission."
+      title: "Custom 3D MID Receivers (RX)",
+      description: "Custom 3D MID enclosures that double as antennas. Designed for OEMs, operators, and enterprises that require specialized receiver performance."
     },
     {
-      icon: Shield,
-      title: "Regulatory Compliance",
-      description: "Automated exposure monitoring and reporting ensures FCC/ETSI compliance with real-time safety margins."
-    },
-    {
-      icon: BarChart3,
-      title: "Environment Intelligence", 
-      description: "Continuous mapping of RF environment optimizes performance while avoiding interference and obstacles."
+      icon: Cloud,
+      title: "Antennar Cloud Platform", 
+      description: "AI continuously analyzes live vision, environment data, and network performance to adjust beam patterns, anticipate weather conditions, and ensure regulatory compliance."
     },
     {
       icon: Building2,
-      title: "Enterprise Integration",
-      description: "RESTful API with JWT authentication integrates seamlessly with existing network management systems."
+      title: "Complete TX + RX Kits",
+      description: "Pre-configured enterprise bundles with transmitters, receivers, and cloud platform access for immediate deployment across ICT applications."
     }
   ];
 
@@ -193,19 +194,23 @@ const Landing = () => {
   return (
     <div className="min-h-screen bg-background">
       {/* Hero Section */}
-      <section className="relative px-6 pt-20 pb-16 bg-gradient-subtle overflow-hidden">
+      <section className="relative px-6 pt-20 pb-16 overflow-hidden">
+        <div 
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{ backgroundImage: `url(${telecomHero})` }}
+        ></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-background/95 via-background/90 to-background/95"></div>
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_40%,rgba(120,119,198,0.1),transparent_50%)]"></div>
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_80%,rgba(255,255,255,0.1),transparent_50%)]"></div>
         
         <div className="container mx-auto text-center relative z-10">
-          <Badge className="mb-6 bg-muted/50 text-foreground border-border">
+          <Badge className="mb-6 bg-muted/80 text-foreground border-border backdrop-blur-sm">
             Professional Telecommunications Equipment • Cloud-Native Platform
           </Badge>
           <h1 className="text-4xl md:text-6xl font-bold mb-6 tracking-tight text-foreground max-w-4xl mx-auto">
             Antennar — Telecommunications Equipment Provider
           </h1>
-          <p className="text-lg md:text-xl text-muted-foreground mb-8 max-w-3xl mx-auto leading-relaxed">
-            We design and supply computer vision-guided transmission systems. Our off-the-shelf transmitters and custom 3D MID receiver antennas are paired with the Antennar Cloud Platform, ensuring adaptive, reliable, and efficient wireless connectivity across ICT applications.
+          <p className="text-lg md:text-xl text-foreground/90 mb-8 max-w-3xl mx-auto leading-relaxed">
+            We deliver vision-guided transmission systems: smart transmitters (TX), custom 3D MID receiver antennas (RX), and a cloud platform that uses AI to monitor, steer, and optimize wireless links in real time. Our goal: make wireless networks more reliable, more efficient, and easier to manage — across every environment.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16">
             <Button size="lg" className="bg-primary hover:bg-primary/90 text-lg px-8 py-6">
@@ -283,9 +288,9 @@ const Landing = () => {
       <section className="py-20 px-6 bg-gradient-subtle">
         <div className="container mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold mb-4">Enterprise Platform Capabilities</h2>
+            <h2 className="text-3xl font-bold mb-4">Telecom Hardware & Cloud Platform</h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Comprehensive RF management and optimization suite
+              Vision-guided transmission systems for enterprise wireless infrastructure
             </p>
           </div>
           
@@ -307,15 +312,15 @@ const Landing = () => {
         <div className="container mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
-              <h2 className="text-3xl font-bold mb-6">Key Enterprise Benefits</h2>
+              <h2 className="text-3xl font-bold mb-6">AI/Computer Vision Resilience Factors</h2>
               <div className="space-y-6">
                 <div className="flex items-start space-x-4">
                   <div className="bg-success/10 rounded-lg p-2">
                     <TrendingUp className="h-6 w-6 text-success" />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-lg mb-2">Power Efficiency Optimization</h3>
-                    <p className="text-muted-foreground text-sm">Directional beam steering concentrates RF energy where needed, reducing waste and lowering operational costs</p>
+                    <h3 className="font-semibold text-lg mb-2">Weather Adaptation</h3>
+                    <p className="text-muted-foreground text-sm">Rain, fog, storms → vision + forecasts adjust beams automatically to maintain connectivity</p>
                   </div>
                 </div>
                 <div className="flex items-start space-x-4">
@@ -323,8 +328,8 @@ const Landing = () => {
                     <Shield className="h-6 w-6 text-primary" />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-lg mb-2">Automated Compliance Management</h3>
-                    <p className="text-muted-foreground text-sm">Continuous RF exposure monitoring and automated reporting reduces regulatory overhead and audit risk</p>
+                    <h3 className="font-semibold text-lg mb-2">Obstacle Detection</h3>
+                    <p className="text-muted-foreground text-sm">Buildings, trees, vehicles → detected in real time with automatic beam pattern adjustment</p>
                   </div>
                 </div>
                 <div className="flex items-start space-x-4">
@@ -332,8 +337,8 @@ const Landing = () => {
                     <BarChart3 className="h-6 w-6 text-info" />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-lg mb-2">Network Performance Enhancement</h3>
-                    <p className="text-muted-foreground text-sm">Environment-aware beam control reduces interference and optimizes signal quality in complex RF environments</p>
+                    <h3 className="font-semibold text-lg mb-2">Interference Mitigation</h3>
+                    <p className="text-muted-foreground text-sm">Crowded spectrum → AI re-patterns energy and ensures compliance with power control regulations</p>
                   </div>
                 </div>
               </div>
