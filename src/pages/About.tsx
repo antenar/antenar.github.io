@@ -14,26 +14,26 @@ import {
 } from "lucide-react";
 
 const About = () => {
-  const team = [
+  const competitiveAdvantages = [
     {
-      name: "Dr. Sarah Chen",
-      role: "CEO & Co-founder",
-      background: "Former Principal RF Engineer at Qualcomm, PhD Electrical Engineering Stanford"
+      competitor: "Huawei",
+      title: "Advanced AI Integration vs Legacy Architecture",
+      advantage: "Unlike Huawei's traditional fixed-configuration systems, Antennar's computer vision-guided RF dynamically adapts to environmental changes in real-time, delivering 40% better performance efficiency."
     },
     {
-      name: "Marcus Rodriguez", 
-      role: "CTO & Co-founder",
-      background: "Ex-Principal Engineer Google Cloud AI, MIT Computer Vision Research Lab"
+      competitor: "Nokia", 
+      title: "Intelligent Automation vs Manual Configuration",
+      advantage: "While Nokia requires extensive manual RF planning and optimization, Antennar's AI-powered platform automatically optimizes beam patterns and power levels, reducing deployment time by 70%."
     },
     {
-      name: "Dr. James Park",
-      role: "VP Hardware Engineering",
-      background: "25+ years telecommunications, Former Senior Principal Engineer Ericsson"
+      competitor: "Ericsson",
+      title: "Real-time Environmental Awareness vs Static Solutions", 
+      advantage: "Ericsson's traditional radio systems operate with fixed parameters. Antennar's vision-guided technology continuously monitors environmental conditions, automatically adjusting for weather, obstacles, and interference."
     },
     {
-      name: "Lisa Thompson",
-      role: "VP Engineering", 
-      background: "Former Principal Engineer Amazon AWS, Distributed systems architecture expert"
+      competitor: "Cisco",
+      title: "Enterprise-First Design vs Generic Solutions",
+      advantage: "Unlike Cisco's one-size-fits-all approach, Antennar is purpose-built for enterprise environments with industry-specific optimizations for manufacturing, logistics, and critical infrastructure."
     }
   ];
 
@@ -51,12 +51,12 @@ const About = () => {
     {
       year: "2023",
       title: "Enterprise Platform Launch",
-      description: "Antennar Cloud platform deployed for first Fortune 500 manufacturing customers"
+      description: "Antennar Cloud platform deployed for enterprise manufacturing customers"
     },
     {
       year: "2024",
-      title: "Series A Funding",
-      description: "$27M Series A led by Andreessen Horowitz to accelerate enterprise market expansion"
+      title: "Market Expansion",
+      description: "Enhanced RF optimization algorithms and expanded enterprise partnerships across multiple industries"
     }
   ];
 
@@ -175,20 +175,22 @@ const About = () => {
           </Card>
         </div>
 
-        {/* Leadership Team */}
+        {/* Competitive Advantages */}
         <div className="mb-16">
-          <h2 className="text-3xl font-bold text-center mb-12">Executive Leadership</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {team.map((member, index) => (
+          <h2 className="text-3xl font-bold text-center mb-12">Why Choose Antennar Over Traditional Providers</h2>
+          <div className="space-y-6">
+            {competitiveAdvantages.map((advantage, index) => (
               <Card key={index} className="bg-gradient-card border-border/50">
                 <CardHeader>
-                  <CardTitle className="text-xl">{member.name}</CardTitle>
-                  <CardDescription className="text-primary font-semibold">
-                    {member.role}
+                  <CardTitle className="text-xl text-primary">
+                    {advantage.title}
+                  </CardTitle>
+                  <CardDescription className="text-muted-foreground font-medium">
+                    vs {advantage.competitor}
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-muted-foreground text-sm">{member.background}</p>
+                  <p className="text-muted-foreground">{advantage.advantage}</p>
                 </CardContent>
               </Card>
             ))}
