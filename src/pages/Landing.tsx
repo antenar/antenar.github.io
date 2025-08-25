@@ -202,19 +202,18 @@ const Landing = () => {
             Professional Telecommunications Equipment • Cloud-Native Platform
           </Badge>
           <h1 className="text-4xl md:text-6xl font-bold mb-6 tracking-tight text-foreground max-w-4xl mx-auto">
-            Vision-Guided Radio Transmission Systems
+            Antennar — Telecommunications Equipment Provider
           </h1>
           <p className="text-lg md:text-xl text-muted-foreground mb-8 max-w-3xl mx-auto leading-relaxed">
-            Professional-grade TX/RX hardware with integrated computer vision, managed through our enterprise cloud platform. 
-            Enhance network efficiency while maintaining regulatory compliance.
+            We design and supply computer vision-guided transmission systems. Our off-the-shelf transmitters and custom 3D MID receiver antennas are paired with the Antennar Cloud Platform, ensuring adaptive, reliable, and efficient wireless connectivity across ICT applications.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16">
             <Button size="lg" className="bg-primary hover:bg-primary/90 text-lg px-8 py-6">
-              Request Demo
+              Explore Antennar Cloud
               <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
-            <Button variant="outline" size="lg" asChild className="text-lg px-8 py-6">
-              <Link to="/dashboard">View Platform</Link>
+            <Button variant="secondary" size="lg" className="border border-border text-lg px-8 py-6" asChild>
+              <Link to="/dashboard">Contact Sales</Link>
             </Button>
           </div>
           

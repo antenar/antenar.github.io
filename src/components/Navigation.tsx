@@ -45,10 +45,10 @@ const Navigation = () => {
           </div>
           
           <div className="flex items-center space-x-4">
-            <Button variant="outline" size="sm" asChild>
-              <Link to="/dashboard">RF Cloud Platform</Link>
+            <Button variant="secondary" size="sm" className="border border-border" asChild>
+              <Link to="/dashboard">Antennar Cloud Platform</Link>
             </Button>
-            <Button size="sm" className="bg-gradient-signal hover:shadow-glow-primary" asChild>
+            <Button size="sm" className="bg-primary hover:bg-primary/90" asChild>
               <Link to="/dashboard">Monitor Systems</Link>
             </Button>
           </div>

@@ -93,8 +93,7 @@ const About = () => {
             <h1 className="text-4xl font-bold">About Antennar Corporation</h1>
           </div>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-            Professional telecommunications equipment manufacturer pioneering enterprise wireless infrastructure 
-            through computer vision-guided radio transmission and cloud-based AI control systems.
+            Antennar is a Telecommunications Equipment Provider delivering vision-guided transmission systems. Our transmitters, receivers, and cloud platform bring precision and adaptability to ICT networks worldwide. By integrating computer vision with telecommunications hardware, Antennar ensures wireless systems remain reliable and efficient across diverse applications.
           </p>
         </div>
 
