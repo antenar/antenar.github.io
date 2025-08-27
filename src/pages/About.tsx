@@ -6,7 +6,7 @@ import {
   Users, 
   Award,
   Globe,
-  Zap,
+  Cpu,
   BarChart3,
   Shield,
   Target,
@@ -128,7 +128,7 @@ const About = () => {
               </p>
               <div className="space-y-3">
                 <div className="flex items-center space-x-3">
-                  <Zap className="h-5 w-5 text-primary" />
+                  <Cpu className="h-5 w-5 text-primary" />
                   <span className="font-semibold">AI-Powered RF Optimization</span>
                 </div>
                 <div className="flex items-center space-x-3">
@@ -166,7 +166,7 @@ const About = () => {
                   <span className="font-semibold">5G/6G Enterprise Architecture</span>
                 </div>
                 <div className="flex items-center space-x-3">
-                  <Zap className="h-5 w-5 text-primary" />
+                  <Cpu className="h-5 w-5 text-primary" />
                   <span className="font-semibold">Real-time Edge Processing</span>
                 </div>
               </div>

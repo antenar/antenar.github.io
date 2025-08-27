@@ -34,7 +34,7 @@ const Dashboard = () => {
   ];
 
   const metrics = [
-    { title: "System Uptime", value: "99.97%", icon: Zap, trend: "No Failures", color: "text-success" },
+    { title: "System Uptime", value: "99.97%", icon: Activity, trend: "No Failures", color: "text-success" },
     { title: "Connected Receivers", value: "41", icon: Radio, trend: "Active Links", color: "text-primary" },
     { title: "RF Compliance", value: "100%", icon: Shield, trend: "All Systems", color: "text-info" },
     { title: "Energy Savings", value: "34.2%", icon: TrendingUp, trend: "vs Omnidirectional", color: "text-success" }

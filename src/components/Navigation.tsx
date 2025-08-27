@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Link, useLocation } from "react-router-dom";
-import { Radio } from "lucide-react";
+import { Radio, Cloud, User } from "lucide-react";
 
 const Navigation = () => {
   const location = useLocation();
@@ -8,6 +8,7 @@ const Navigation = () => {
   const navLinks = [
     { path: "/", label: "Home" },
     { path: "/dashboard", label: "Dashboard" },
+    { path: "/visualizer", label: "Visualizer" },
     { path: "/api-docs", label: "API" },
     { path: "/about", label: "About" },
   ];
@@ -46,10 +47,16 @@ const Navigation = () => {
           
           <div className="flex items-center space-x-4">
             <Button variant="secondary" size="sm" className="border border-border" asChild>
-              <Link to="/dashboard">Antennar Cloud Platform</Link>
+              <Link to="/dashboard" className="flex items-center space-x-2">
+                <Cloud className="h-4 w-4" />
+                <span>Antennar Cloud Platform</span>
+              </Link>
             </Button>
             <Button size="sm" className="bg-primary hover:bg-primary/90" asChild>
-              <Link to="/dashboard">Monitor Systems</Link>
+              <Link to="/account" className="flex items-center space-x-2">
+                <User className="h-4 w-4" />
+                <span>Account</span>
+              </Link>
             </Button>
           </div>
         </div>

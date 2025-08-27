@@ -213,9 +213,11 @@ const Landing = () => {
             We deliver vision-guided transmission systems: smart transmitters (TX), custom 3D MID receiver antennas (RX), and a cloud platform that uses AI to monitor, steer, and optimize wireless links in real time. Our goal: make wireless networks more reliable, more efficient, and easier to manage — across every environment.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16">
-            <Button size="lg" className="bg-primary hover:bg-primary/90 text-lg px-8 py-6">
-              Explore Antennar Cloud
-              <ArrowRight className="ml-2 h-5 w-5" />
+            <Button size="lg" className="bg-primary hover:bg-primary/90 text-lg px-8 py-6" asChild>
+              <Link to="/dashboard">
+                Explore Antennar Cloud
+                <ArrowRight className="ml-2 h-5 w-5" />
+              </Link>
             </Button>
             <Button variant="secondary" size="lg" className="border border-border text-lg px-8 py-6" asChild>
               <Link to="/dashboard">Contact Sales</Link>

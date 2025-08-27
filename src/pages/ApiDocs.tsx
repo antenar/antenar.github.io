@@ -6,7 +6,7 @@ import {
   Code, 
   Radio, 
   Key, 
-  Zap,
+  Cpu,
   Shield,
   BarChart3,
   Activity,
@@ -164,7 +164,7 @@ const ApiDocs = () => {
         <Card className="bg-gradient-card border-border/50 mb-8">
           <CardHeader>
             <CardTitle className="flex items-center space-x-2">
-              <Zap className="h-5 w-5 text-primary" />
+              <Cpu className="h-5 w-5 text-primary" />
               <span>Enterprise Quick Start</span>
             </CardTitle>
             <CardDescription>Get your integration running in under 15 minutes</CardDescription>
