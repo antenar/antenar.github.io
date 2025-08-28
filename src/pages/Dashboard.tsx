@@ -30,6 +30,7 @@ import radarRangeDopplerImage from "@/assets/radar-range-doppler.jpg";
 import lidarPointCloudImage from "@/assets/lidar-point-cloud.jpg";
 import rfLinkBudgetImage from "@/assets/rf-link-budget.jpg";
 import cloudNetworkVisual from "@/assets/cloud-network-visual.jpg";
+import NetworkFlow from "@/components/NetworkFlow";
 
 const Dashboard = () => {
   const devices = [
@@ -222,87 +223,23 @@ const Dashboard = () => {
 
           {/* Network Topology Visualization */}
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8">
-            <Card className="lg:col-span-2 bg-gradient-card border-border/50">
+            <Card className="lg:col-span-3 bg-gradient-card border-border/50">
               <CardHeader>
                 <div className="flex items-center justify-between">
                   <div>
                     <CardTitle className="flex items-center space-x-2">
                       <CloudIcon className="h-5 w-5 text-primary" />
-                      <span>Cloud Network Topology</span>
+                      <span>Interactive Network Visualizer</span>
                     </CardTitle>
-                    <CardDescription>Live network visualization with AI-optimized beam patterns</CardDescription>
+                    <CardDescription>Real-time network topology with AI-optimized beam patterns - drag, connect and interact</CardDescription>
                   </div>
                   <Badge variant="outline" className="text-success border-success/20 bg-success/10">
-                    Real-time
+                    Interactive
                   </Badge>
                 </div>
               </CardHeader>
               <CardContent>
-                <div className="relative h-96 bg-muted/20 rounded-lg overflow-hidden">
-                  <img 
-                    src={cloudNetworkVisual} 
-                    alt="Cloud Network Topology Visualization" 
-                    className="w-full h-full object-cover"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-background/60 to-transparent"></div>
-                  <div className="absolute bottom-4 left-4 right-4">
-                    <div className="flex items-center justify-between text-sm">
-                      <div className="flex items-center space-x-4">
-                        <div className="flex items-center space-x-2">
-                          <div className="w-3 h-3 bg-success rounded-full animate-pulse"></div>
-                          <span className="text-white">Active Links</span>
-                        </div>
-                        <div className="flex items-center space-x-2">
-                          <div className="w-3 h-3 bg-warning rounded-full"></div>
-                          <span className="text-white">High Traffic</span>
-                        </div>
-                      </div>
-                      <Button variant="outline" size="sm" className="bg-background/80">
-                        View Full Map
-                      </Button>
-                    </div>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-
-            <Card className="bg-gradient-card border-border/50">
-              <CardHeader>
-                <CardTitle className="flex items-center space-x-2">
-                  <Eye className="h-5 w-5 text-primary" />
-                  <span>AI Insights</span>
-                </CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-4">
-                <div className="p-3 bg-success/10 rounded-lg border border-success/20">
-                  <div className="flex items-center space-x-2 mb-2">
-                    <CheckCircle className="h-4 w-4 text-success" />
-                    <span className="text-sm font-semibold">Optimal Performance</span>
-                  </div>
-                  <p className="text-xs text-muted-foreground">
-                    All TX systems operating within optimal parameters
-                  </p>
-                </div>
-                
-                <div className="p-3 bg-warning/10 rounded-lg border border-warning/20">
-                  <div className="flex items-center space-x-2 mb-2">
-                    <AlertTriangle className="h-4 w-4 text-warning" />
-                    <span className="text-sm font-semibold">High Load Detected</span>
-                  </div>
-                  <p className="text-xs text-muted-foreground">
-                    NODE-003 experiencing 89% capacity utilization
-                  </p>
-                </div>
-                
-                <div className="p-3 bg-info/10 rounded-lg border border-info/20">
-                  <div className="flex items-center space-x-2 mb-2">
-                    <Antenna className="h-4 w-4 text-info" />
-                    <span className="text-sm font-semibold">Beam Optimization</span>
-                  </div>
-                  <p className="text-xs text-muted-foreground">
-                    AI adjusted 12 beam patterns for weather conditions
-                  </p>
-                </div>
+                <NetworkFlow />
               </CardContent>
             </Card>
           </div>
