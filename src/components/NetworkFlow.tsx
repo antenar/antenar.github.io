@@ -40,13 +40,19 @@ const nodeClassName = (node: any) => node.type;
 const NetworkFlow = () => {
   const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes);
   const [edges, setEdges, onEdgesChange] = useEdgesState(initialEdges);
+  
   const onConnect = useCallback(
-    (params: any) => setEdges((eds) => addEdge(params, eds)),
+    (params: any) => setEdges((eds) => addEdge({
+      ...params,
+      type: 'smoothstep',
+      style: { stroke: 'hsl(var(--primary))', strokeWidth: 2 },
+      label: 'New Connection',
+    }, eds)),
     [],
   );
 
   return (
-    <div className="h-96 w-full">
+    <div className="h-[600px] w-full border border-border rounded-lg bg-background/50">
       <ReactFlow
         nodes={nodes}
         edges={edges}
@@ -54,14 +60,35 @@ const NetworkFlow = () => {
         onEdgesChange={onEdgesChange}
         onConnect={onConnect}
         fitView
-        attributionPosition="top-right"
+        attributionPosition="bottom-left"
         nodeTypes={nodeTypes}
         edgeTypes={edgeTypes}
-        style={{ backgroundColor: "hsl(var(--muted))" }}
+        connectionLineStyle={{ stroke: 'hsl(var(--primary))', strokeWidth: 2 }}
+        defaultEdgeOptions={{
+          style: { stroke: 'hsl(var(--primary))', strokeWidth: 2 },
+        }}
+        style={{ backgroundColor: "hsl(var(--background))" }}
+        panOnScroll
+        selectionOnDrag
+        panOnDrag={[1, 2]}
       >
-        <MiniMap zoomable pannable nodeClassName={nodeClassName} />
+        <MiniMap 
+          zoomable 
+          pannable 
+          nodeClassName={nodeClassName}
+          style={{
+            backgroundColor: 'hsl(var(--muted))',
+            border: '1px solid hsl(var(--border))',
+          }}
+          nodeColor={() => 'hsl(var(--primary))'}
+          maskColor="hsl(var(--muted) / 0.7)"
+        />
         <Controls />
-        <Background />
+        <Background 
+          gap={20} 
+          size={1}
+          color="hsl(var(--muted-foreground) / 0.3)"
+        />
       </ReactFlow>
     </div>
   );
