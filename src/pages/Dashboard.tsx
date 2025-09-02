@@ -30,7 +30,6 @@ import radarRangeDopplerImage from "@/assets/radar-range-doppler.jpg";
 import lidarPointCloudImage from "@/assets/lidar-point-cloud.jpg";
 import rfLinkBudgetImage from "@/assets/rf-link-budget.jpg";
 import cloudNetworkVisual from "@/assets/cloud-network-visual.jpg";
-import NetworkFlow from "@/components/NetworkFlow";
 
 const Dashboard = () => {
   const devices = [
@@ -239,7 +238,9 @@ const Dashboard = () => {
                 </div>
               </CardHeader>
               <CardContent>
-                <NetworkFlow />
+                <div className="text-center text-muted-foreground p-8">
+                  Network visualizer moved to dedicated Network page
+                </div>
               </CardContent>
             </Card>
           </div>
