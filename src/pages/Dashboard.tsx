@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress";
 import { 
   Radio, 
-  Activity, 
+  Cpu, 
   Shield, 
   Zap, 
   BarChart3, 
@@ -16,7 +16,6 @@ import {
   Camera,
   Radar,
   Waves,
-  Cpu,
   Eye,
   Thermometer,
   Network,
@@ -68,13 +67,13 @@ const Dashboard = () => {
     switch (status) {
       case 'active': return CheckCircle;
       case 'warning': return AlertTriangle;
-      case 'maintenance': return Activity;
-      default: return Activity;
+      case 'maintenance': return Cpu;
+      default: return Radio;
     }
   };
 
   const metrics = [
-    { title: "System Uptime", value: "99.97%", icon: Activity, trend: "No Failures", color: "text-success" },
+    { title: "System Uptime", value: "99.97%", icon: Cpu, trend: "No Failures", color: "text-success" },
     { title: "Connected Receivers", value: "41", icon: Radio, trend: "Active Links", color: "text-primary" },
     { title: "RF Compliance", value: "100%", icon: Shield, trend: "All Systems", color: "text-info" },
     { title: "Energy Savings", value: "34.2%", icon: TrendingUp, trend: "vs Omnidirectional", color: "text-success" }
@@ -482,7 +481,6 @@ const Dashboard = () => {
         <Card className="bg-gradient-card border-border/50 mt-6">
           <CardHeader>
             <CardTitle className="flex items-center space-x-2">
-              <Activity className="h-5 w-5 text-primary" />
               <span>Recent Activity</span>
             </CardTitle>
           </CardHeader>

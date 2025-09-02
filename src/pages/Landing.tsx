@@ -13,7 +13,7 @@ import {
   Users,
   TrendingUp,
   Cloud,
-  Activity
+  Settings
 } from "lucide-react";
 import { Link } from "react-router-dom";
 import telecomHero from "@/assets/telecom-hero.jpg";
@@ -139,7 +139,7 @@ const Landing = () => {
       number: "03",
       title: "Control & Monitor", 
       description: "Manage fleet performance through web dashboard or integrate via enterprise API.",
-      icon: Activity
+      icon: Settings
     }
   ];
 

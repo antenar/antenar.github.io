@@ -9,7 +9,7 @@ import {
   Cpu,
   Shield,
   BarChart3,
-  Activity,
+  Settings,
   Copy,
   ExternalLink,
   CheckCircle
@@ -191,7 +191,7 @@ const ApiDocs = () => {
               </div>
               <div className="p-4 bg-muted/20 rounded-lg border border-border/50">
                 <div className="flex items-center space-x-2 mb-2">
-                  <Activity className="h-4 w-4 text-success" />
+                  <Settings className="h-4 w-4 text-success" />
                   <span className="font-semibold text-sm">3. Start Integration</span>
                 </div>
                 <p className="text-xs text-muted-foreground">
@@ -351,7 +351,7 @@ const ApiDocs = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
                 <h4 className="font-semibold mb-3 flex items-center space-x-2">
-                  <Activity className="h-4 w-4 text-primary" />
+                  <Radio className="h-4 w-4 text-primary" />
                   <span>Node Status Response</span>
                 </h4>
                 <div className="bg-primary text-primary-foreground rounded-lg p-4 text-sm font-mono">
