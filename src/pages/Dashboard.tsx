@@ -29,6 +29,7 @@ import radarRangeDopplerImage from "@/assets/radar-range-doppler.jpg";
 import lidarPointCloudImage from "@/assets/lidar-point-cloud.jpg";
 import rfLinkBudgetImage from "@/assets/rf-link-budget.jpg";
 import cloudNetworkVisual from "@/assets/cloud-network-visual.jpg";
+import NetworkFlow from "@/components/NetworkFlow";
 
 const Dashboard = () => {
   const devices = [
@@ -115,6 +116,29 @@ const Dashboard = () => {
 
         {/* Main Content Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
+          {/* Interactive Network Visualizer */}
+          <div className="col-span-1 lg:col-span-2">
+            <Card className="bg-gradient-card border-border/50">
+              <CardHeader>
+                <div className="flex items-center justify-between">
+                  <div>
+                    <CardTitle className="flex items-center space-x-2">
+                      <Network className="h-5 w-5 text-primary" />
+                      <span>Interactive Network Visualizer</span>
+                    </CardTitle>
+                    <CardDescription>Real-time network topology with AI-optimized beam patterns - drag, connect and interact</CardDescription>
+                  </div>
+                  <Badge variant="outline" className="text-success border-success/20 bg-success/10">
+                    Interactive
+                  </Badge>
+                </div>
+              </CardHeader>
+              <CardContent>
+                <NetworkFlow />
+              </CardContent>
+            </Card>
+          </div>
+
           {/* RF Link Budget Analysis */}
           <Card className="bg-gradient-card border-border/50">
             <CardHeader>
@@ -237,9 +261,7 @@ const Dashboard = () => {
                 </div>
               </CardHeader>
               <CardContent>
-                <div className="text-center text-muted-foreground p-8">
-                  Network visualizer moved to dedicated Network page
-                </div>
+                <NetworkFlow />
               </CardContent>
             </Card>
           </div>
